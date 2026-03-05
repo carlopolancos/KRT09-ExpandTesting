@@ -1,0 +1,17 @@
+cd /d D:\Karate-Test-Framework\KRT09-ExpandTesting
+cd /d D:\Karate-Test-Framework\KRT09-ExpandTesting
+
+mvn help:all-profiles
+mvn help:active-profiles
+
+staging/preprod/prod
+mvn clean -P staging test "-Dkarate.options=--tags @regression"
+mvn clean -P staging test "-Dkarate.options=--tags @products"
+mvn clean -P staging test "-Dkarate.options=--tags @carts"
+mvn clean -P staging test "-Dkarate.options=--tags @users"
+mvn clean -P staging test "-Dkarate.options=--tags @post"
+mvn clean -P staging test "-Dkarate.options=--tags @delete"
+mvn clean -P staging test "-Dkarate.options=--tags @get"
+mvn clean -P staging test "-Dkarate.options=--tags @put"
+
+mvn clean test-compile gatling:test
