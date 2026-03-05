@@ -7,8 +7,7 @@ public class TestUsersRunner {
 	
 	@Test
 	public Karate runTest() {
-//		return Karate.run().relativeTo(getClass());
-		return Karate.run("users-unhappy-path").relativeTo(getClass());
+		return Karate.run().relativeTo(getClass());
 	}
 	
 }

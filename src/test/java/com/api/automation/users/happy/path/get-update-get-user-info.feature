@@ -1,7 +1,7 @@
-@regression @users @post
-Feature: Test User path
+@regression @users @happy-path @get-user-info @update-user
+Feature: Get User Info, Update User Info, then Get Advanced User Info Happy Path
 
-	Scenario: To test happy path for users/
+	Scenario: To test happy path for users/profile
 		#Define user info
 		* def userName = "carlo"
 		* def userEmail = "polancoscarlojames1210@gmail.com"
@@ -65,43 +65,5 @@ Feature: Test User path
 		And match response.data.phone == userPhone
 		And match response.data.company == userCompany
 
-		#Send password reset link
-		And path 'users/forgot-password'
-		And form field email = userEmail
-		And headers { Accept: "application/json", Content-Type: "application/x-www-form-urlencoded"}
-		When method post
-		Then status 200
-		And match response.message == "Password reset link successfully sent to "+userEmail+". Please verify by clicking on the given link"
-
-		#Change Password
-		* def newUserPassword = "samPasswordple"
-		And path 'users/change-password'
-		And form field currentPassword = userPassword
-		And form field newPassword = newUserPassword
-		And headers { Accept: "application/json", Content-Type: "application/x-www-form-urlencoded", x-auth-token: "#(authToken)" }
-		When method post
-		Then status 200
-		And match response.message == "The password was successfully updated"
-
-		#Logout
-		And path 'users/logout'
-		And headers { Accept: "application/json", x-auth-token: "#(authToken)" }
-		When method delete
-		Then status 200
-		And match response.message == "User has been successfully logged out"
-
-		#Login user
-		And path 'users/login'
-		And form field email = userEmail
-		And form field password = newUserPassword
-		And headers { Accept: "application/json", Content-Type: "application/x-www-form-urlencoded" }
-		When method post
-		Then status 200
-		And match response.message == "Login successful"
-		And match response.data.id == userId
-		And match response.data.name == newUserName
-		And match response.data.email == userEmail
-		* def newAuthToken = response.data.token
-
 		#Delete User
-		* def deleteAccount = call read('classpath:com/api/automation/resources/delete-account.feature') { _randomAuthToken: "#(newAuthToken)" }
+		* def deleteAccount = call read('classpath:com/api/automation/resources/delete-account.feature') { _authToken: "#(authToken)" }
