@@ -1,7 +1,6 @@
-@regression @users @post
-Feature: Delete random user
+Feature: Login using passed credentials
 
-    Scenario: Delete random user from passed parameter
+    Scenario: Login using passed credentials
         Given url _url
         And path 'users/login'
         And form field email = _randomUserEmail

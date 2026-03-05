@@ -24,15 +24,15 @@ public class ParallelBuilderWithTagsSuper {
 	 * @regression (all)
 	 *
 	 * PER PATH
-	 * @products
-	 * @carts
 	 * @users
+	 * @notes
 	 *
 	 * PER METHOD
 	 * @post
 	 * @delete
 	 * @get
 	 * @put
+	 * @patch
 	 *
 	 * */
 	

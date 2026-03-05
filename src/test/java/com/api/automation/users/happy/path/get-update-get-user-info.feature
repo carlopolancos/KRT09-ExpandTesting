@@ -1,5 +1,5 @@
 @regression @users @happy-path @get-user-info @update-user
-Feature: Get User Info, Update User Info, then Get Advanced User Info Happy Path
+Feature: Users - Get Info, Update Info, then Get Advanced Info Happy Path
 
 	Scenario: To test happy path for users/profile
 		#Define user info

@@ -1,4 +1,3 @@
-@regression @users @get
 Feature: Use this API endpoint to check if the server is running and healthy
 
     Scenario: Check server status

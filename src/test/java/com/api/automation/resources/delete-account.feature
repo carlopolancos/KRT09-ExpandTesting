@@ -1,5 +1,4 @@
-@regression @users @post
-Feature: Delete random user
+Feature: Delete random user from passed parameter
 
     Scenario: Delete random user from passed parameter
         Given url _url

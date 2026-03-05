@@ -1,4 +1,3 @@
-@debug @signup
 Feature: Sign Up random user
 
     Scenario: New user sign up

@@ -1,5 +1,5 @@
 @regression @users @happy-path @create-user @login-user @logout-user
-Feature: Create, Login, Logout, Login, then Delete Happy Path
+Feature: Users - Create, Login, Logout, Login, then Delete Happy Path
 
 	Scenario: To test happy path for users/register, /login, /logout, and /delete-account
 		#Define user info

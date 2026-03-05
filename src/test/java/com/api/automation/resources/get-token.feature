@@ -1,7 +1,6 @@
-@debug @signup
-Feature: Sign Up random user
+Feature: Authorization Helper
 
-    Scenario: New user sign up
+    Scenario: Login set user credentials
         * def userEmail = "carlo.polancos@awsys-i.com"
         * def userPassword = "passSampleword"
 
@@ -14,4 +13,5 @@ Feature: Sign Up random user
         Then status 200
         And match response.message == "Login successful"
         And match response.data.email == userEmail
+        * def userId = response.data.id
         * def authToken = response.data.token

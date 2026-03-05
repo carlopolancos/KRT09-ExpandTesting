@@ -1,5 +1,5 @@
 @regression @users @happy-path @send-password-reset-link @change-password
-Feature: Send Password Reset Link and Change Password Happy Path
+Feature: Users - Send Password Reset Link and Change Password Happy Path
 
 	Scenario: To test happy path for users/forgot-password and /change-password
 		#Define user info
