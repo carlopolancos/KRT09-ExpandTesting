@@ -2,15 +2,13 @@
 Feature: Users - Create, Login, Logout, Login, then Delete Happy Path
 
 	Scenario: To test happy path for users/register, /login, /logout, and /delete-account
-		#Define user info
-		* def userName = "carlo"
-		* def userEmail = "polancoscarlojames1210@gmail.com"
-		* def userPassword = "passSampleword"
+		#Create random account
+		* def randomAccount = callonce read('classpath:com/api/automation/resources/create-random-account.feature')
+		* def userName = randomAccount.randomUserName
+		* def userEmail = randomAccount.randomUserEmail
+		* def userPassword = randomAccount.randomUserPassword
+		* def userId = randomAccount.randomUserId
 		Given url _url
-
-		#Create user
-		* def createAccount = call read('classpath:com/api/automation/resources/create-specific-account.feature') { _userName: "#(userName)", _userEmail: "#(userEmail)", _userPassword: "#(userPassword)" }
-		* def userId = createAccount.userId
 
 		#Login user
 		And path 'users/login'
